@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+{{title}}
+{% endblock pagetitle %}
+{% block body %}
+<html>
+  <head>
+    <title>Prediction | Handwritten Digit Recognition</title>
+    
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/predict.css')}}" />
+    <link rel="icon" type="image/svg" sizes="32x32" href="{{url_for('static',filename='images/icon.svg')}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      img{
+        width: 250px;
+        height: 250px;
+        background-image: cover;
+        border-radius: 20px;
+      }
+      .predict-value{
+        width: 250px;
+        height: 250px;
+        font-size: 200px;
+        /*border: 0px solid red;*/
+        display: inline-flex;
+        justify-content: space-around;
+        align-items:center ;
+        background-color: #fff;
+        border-radius: 20px;
+      }
+      .predict-accuracy{
+        font-size: 20px;
+      }
+      .other_predictions{
+        width: 600px;
+        height: 600px;
+        border-radius: 30px;
+        background-color: rgb(0, 0, 128);
+        /*display: flex;*/
+        flex-direction: column;
+        justify-content: center;
+        /*float: right;*/
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 100px 300px 0px 0px;
+      }
+
+      .graph{
+        width: 30px;
+        height: 40px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: rgb(83, 245, 126);
+        /*background-color: royalblue;*/
+        margin: 5px 5px 5px 2px;
+
+      }
+      .graph-plot{
+        width: auto;
+        padding:2px;
+        border-radius: 25px;
+        /*height: 30px;*/
+        background-color: rgb(252, 71, 71);
+        /*right: 0;*/
+        /*display: flex;*/
+        justify-content: left;
+        margin-bottom:5px ;
+      }
+      .pct{
+        margin-left: 5px;
+        justify-content: right;
+        color: whitesmoke;
+      }
+      table{
+        border: 1px solid transparent;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hand Written Image</h1>
+      <img src="static/thumb/255X255_{{img_name}}" > 
+      <div class="result-wrapper">
+        <div class="input-image-container">
+          <!-- <img src="{{url_for('static',filename='data/')}}{{img_name}}" /> -->
+        </div>
+        <!-- <div class="result-container">
+          <div class="value">{{best.0}}</div>
+          <div class="accuracy">{{best.1}}%</div>
+        </div> -->
+      </div>
+        <h1>Predictions</h1>
+      <div class="result-container">
+          <div class="value predict-value">{{best.0}}</div>
+          <div class="accuracy predict-accuracy">{{best.1}}%</div>
+      </div>
+      <div class="other_predictions">
+        {% for x in others %} 
+        <table>
+          <tr>
+            <td><div class="value graph">
+          <div id="h2"><h2>{{x.0}}</h2></div></td>
+            <td class="graph-plot"><div class="plot" style="width: {{x.1*5}}px;"> </div></td>
+            <td class="pct"><div>{{x.1}}%</div></td>
+          </tr>
+        </table>
+         {% endfor %} 
+      </div>
+    </div>
+  </body>
+</html>
+
+
+ -->{% endblock body %}

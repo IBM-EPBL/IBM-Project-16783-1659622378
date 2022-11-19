@@ -1,0 +1,60 @@
+<html>
+{% extends 'base.html' %}
+{% block pagetitle %}
+A Novel Method for Handwritten Digit Recognition System
+{% endblock pagetitle %}
+
+{% block body %}
+<div>
+    <div class="container">
+        <!-- For demo purpose -->
+        <div class="row mb-5 text-center text-white">
+            <div class="col-lg-10 mx-auto" >
+                <h2 class="display-4" style="padding-top: 2%;font-weight: 350;font-size: 44px; color: rgb(4, 54, 4); margin: 0;"><b> A Novel Method for Handwritten Digit Recognition System</b></h2>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col mx-auto">
+                <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;border-radius: 50px; width: fit-content;margin: auto;" ><img
+                        src="static/img-alt.jpg"alt="" width="400" class="d-block mx-auto mb-4 "
+                        style="border-radius: 24px;">
+
+                    <!-- Default bootstrap file upload-->
+
+                    <form action="/submit" method="POST" enctype="multipart/form-data">
+                        <div class="custom-file overflow-hidden mb-4" id="file-input">
+                            <input type="file" id="actual-btn" hidden name="image" style="" />
+                            <label for="actual-btn" id="actual-btn-alt">Choose File</label>
+                            <span id="file-chosen">No file chosen</span>
+                        </div>
+
+                        <!-- End -->
+
+                        <h6 class="text-center mb-4 text-muted">
+                            Upload the Hand Written Digital Images
+                        </h6>
+
+                        <!-- Custom bootstrap upload file-->
+                        <center>
+                            <a class="mx-2"><button type="submit" class="btn btn-outline-success">Submit</button></a>
+                        </center>
+                    </form>
+                    <!-- End -->
+
+                </div>
+            </div>
+        </div>
+<!--     </div>
+</div> -->
+
+<script>
+    const actualBtn = document.getElementById('actual-btn');
+
+    const fileChosen = document.getElementById('file-chosen');
+
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name
+    })
+</script>
+
+{% endblock body %}
